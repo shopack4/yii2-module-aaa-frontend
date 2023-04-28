@@ -86,7 +86,7 @@ class UserModel extends RestClientActiveRecord
 
  	public function isSoftDeleted()
   {
-    return ($this->usrStatus == enuUserStatus::REMOVED);
+    return ($this->usrStatus == enuUserStatus::Removed);
   }
 
   public static function findIdentity($id)
@@ -110,10 +110,16 @@ class UserModel extends RestClientActiveRecord
     if (count($parts) != 3)
       return null;
 
+    $jwtPayload = json_decode(base64_decode($parts[1]), true);
+
+    //validate
+    // if (Yii::$app->user->validateJwtPayload($jwtPayload) == false)
+    //   return null;
+
     $user = new self;
     // $user->authKey = $token;
     $user->accessToken = $token;
-    $user->jwtPayload = json_decode(base64_decode($parts[1]), true);
+    $user->jwtPayload = $jwtPayload;
 
     $user->usrID = $user->jwtPayload['uid'];
     $user->usrEmail = $user->jwtPayload['email'] ?? null;
@@ -192,15 +198,15 @@ class UserModel extends RestClientActiveRecord
 	}
 
 	public function canUpdate() {
-		return ($this->usrStatus != enuUserStatus::REMOVED);
+		return ($this->usrStatus != enuUserStatus::Removed);
 	}
 
 	public function canDelete() {
-		return ($this->usrStatus != enuUserStatus::REMOVED);
+		return ($this->usrStatus != enuUserStatus::Removed);
 	}
 
 	public function canUndelete() {
-		return ($this->usrStatus == enuUserStatus::REMOVED);
+		return ($this->usrStatus == enuUserStatus::Removed);
 	}
 
 }

@@ -52,6 +52,9 @@ return [
 	'Gateway Info' => 'مشخصات درگاه',
 	'Create Gateway' => 'ایجاد درگاه',
 	'Update Gateway' => 'ویرایش درگاه',
+	'Gateway Type' => 'درگاه بانکی',
+
+	'Iran Bank' => 'بانک ایران',
 
 	'Plugin Type' => 'نوع درگاه',
 	'Plugin' => 'راه انداز',
@@ -115,7 +118,15 @@ return [
 	'Offline Payments' => 'پرداخت‌های آفلاین',
 	'Offline Payment' => 'پرداخت آفلاین',
 
+	'Wallets' => 'کیف‌های پول',
+	'Wallet' => 'کیف پول',
+	'Wallet Info' => 'مشخصات کیف پول',
+	'Create Wallet' => 'ایجاد کیف پول',
+	'Update Wallet' => 'ویرایش کیف پول',
 
+	'Increase Balance' => 'افزایش موجودی',
+	'Amount' => 'مبلغ',
+	'Remained Amount' => 'موجودی',
 
 
 
@@ -412,4 +423,6 @@ return [
 	'Deleted Files Size' => 'حجم فایل‌های حذف شده',
 	'Last Action Time' => 'آخرین زمان عملیات',
 
+	'Shopping Card' => 'سبد خرید',
+	'Basket' => 'سبد خرید',
 ];

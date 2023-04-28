@@ -15,6 +15,7 @@ class ChallengeForm extends Model
   public $type;
   public $key;
   public $value;
+  public $rememberMe = true;
 
   public function rules()
   {
@@ -25,6 +26,7 @@ class ChallengeForm extends Model
         'key',
         'value',
       ], 'required'],
+      ['rememberMe', 'boolean'],
     ];
   }
 
@@ -33,6 +35,7 @@ class ChallengeForm extends Model
 		return [
 			'key' => Yii::t('aaa', 'Key'),
 			'value' => Yii::t('aaa', 'Code'),
+      'rememberMe' => Yii::t('aaa', 'Remember Me'),
 		];
 	}
 
@@ -47,6 +50,7 @@ class ChallengeForm extends Model
       [
         'key' => $this->key,
         'value' => $this->value,
+        'rememberMe' => $this->rememberMe,
       ]
     );
 

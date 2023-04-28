@@ -43,7 +43,7 @@ class ApprovalRequestModel extends RestClientActiveRecord
 
 	public function isSoftDeleted()
   {
-    return false; //($this->aprStatus == enuApprovalRequestStatus::REMOVED);
+    return false; //($this->aprStatus == enuApprovalRequestStatus::Removed);
   }
 
 }

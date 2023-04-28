@@ -5,6 +5,7 @@
 
 /** @var yii\web\View $this */
 
+use shopack\base\frontend\widgets\PopoverX;
 use shopack\base\common\helpers\Url;
 use shopack\base\common\helpers\HttpHelper;
 use shopack\base\common\helpers\ArrayHelper;
@@ -26,6 +27,42 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $model->canUpdate()   ? Html::updateButton(null,   ['id' => $model->cntrID]) : '' ?>
         <?= $model->canDelete()   ? Html::deleteButton(null,   ['id' => $model->cntrID]) : '' ?>
         <?= $model->canUndelete() ? Html::undeleteButton(null, ['id' => $model->cntrID]) : '' ?>
+        <?php
+          PopoverX::begin([
+            // 'header' => 'Hello world',
+            'closeButton' => false,
+            'toggleButton' => [
+              'label' => Yii::t('aaa', 'Logs'),
+              'class' => 'btn btn-default',
+            ],
+            'placement' => PopoverX::ALIGN_AUTO_BOTTOM,
+          ]);
+
+          echo DetailView::widget([
+            'model' => $model,
+            'enableEditMode' => false,
+            // 'isVertical' => false,
+            'attributes' => [
+              'cntrCreatedAt:jalaliWithTime',
+              [
+                'attribute' => 'cntrCreatedBy_User',
+                'value' => $model->createdByUser->actorName ?? '-',
+              ],
+              'cntrUpdatedAt:jalaliWithTime',
+              [
+                'attribute' => 'cntrUpdatedBy_User',
+                'value' => $model->updatedByUser->actorName ?? '-',
+              ],
+              'cntrRemovedAt:jalaliWithTime',
+              [
+                'attribute' => 'cntrRemovedBy_User',
+                'value' => $model->removedByUser->actorName ?? '-',
+              ],
+            ],
+          ]);
+
+          PopoverX::end();
+        ?>
 			</div>
       <div class='card-title'><?= Html::encode($this->title) ?></div>
 			<div class="clearfix"></div>
@@ -35,7 +72,7 @@ $this->params['breadcrumbs'][] = $this->title;
         echo DetailView::widget([
           'model' => $model,
           'enableEditMode' => false,
-          'cols' => 2,
+          // 'cols' => 2,
           // 'isVertical' => false,
           'attributes' => [
             'cntrID',
@@ -44,21 +81,6 @@ $this->params['breadcrumbs'][] = $this->title;
             //   'value' => enuGeoCountryStatus::getLabel($model->cntrStatus),
             // ],
             'cntrName',
-            'cntrCreatedAt:jalaliWithTime',
-            [
-              'attribute' => 'cntrCreatedBy_User',
-              'value' => $model->createdByUser->actorName() ?? '-',
-            ],
-            'cntrUpdatedAt:jalaliWithTime',
-            [
-              'attribute' => 'cntrUpdatedBy_User',
-              'value' => $model->updatedByUser->actorName() ?? '-',
-            ],
-            'cntrRemovedAt:jalaliWithTime',
-            [
-              'attribute' => 'cntrRemovedBy_User',
-              'value' => $model->removedByUser->actorName() ?? '-',
-            ],
           ],
         ]);
       ?>

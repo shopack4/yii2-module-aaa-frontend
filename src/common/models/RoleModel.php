@@ -37,7 +37,7 @@ class RoleModel extends RestClientActiveRecord
 
 	public function isSoftDeleted()
   {
-    return false; //($this->rolStatus == enuRoleStatus::REMOVED);
+    return false; //($this->rolStatus == enuRoleStatus::Removed);
   }
 
 	public static function canCreate() {
@@ -45,15 +45,15 @@ class RoleModel extends RestClientActiveRecord
 	}
 
 	public function canUpdate() {
-		return true; //($this->rolStatus != enuRoleStatus::REMOVED);
+		return true; //($this->rolStatus != enuRoleStatus::Removed);
 	}
 
 	public function canDelete() {
-		return true; //($this->rolStatus != enuRoleStatus::REMOVED);
+		return true; //($this->rolStatus != enuRoleStatus::Removed);
 	}
 
 	public function canUndelete() {
-		return false; //($this->rolStatus == enuRoleStatus::REMOVED);
+		return false; //($this->rolStatus == enuRoleStatus::Removed);
 	}
 
 }

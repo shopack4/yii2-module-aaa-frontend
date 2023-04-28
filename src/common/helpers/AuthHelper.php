@@ -19,6 +19,7 @@ class AuthHelper
     $csrfToken = $request->getCsrfToken();
     $challengeUrl = Url::to(['challenge']);
     $formName = $challengeModel->formName();
+
     $html =<<<HTML
 <html>
 <head>
@@ -30,6 +31,7 @@ class AuthHelper
 <input type="hidden" name="{$formName}[realm]" value="{$challengeModel->realm}">
 <input type="hidden" name="{$formName}[type]" value="{$challengeModel->type}">
 <input type="hidden" name="{$formName}[key]" value="{$challengeModel->key}">
+<input type="hidden" name="{$formName}[rememberMe]" value="{$challengeModel->rememberMe}">
 </form>
 </body>
 </html>

@@ -36,7 +36,7 @@ class GeoCityOrVillageModel extends RestClientActiveRecord
 
 	public function isSoftDeleted()
   {
-    return false; //($this->ctvStatus == enuGeoCityOrVillageStatus::REMOVED);
+    return false; //($this->ctvStatus == enuGeoCityOrVillageStatus::Removed);
   }
 
 	public static function canCreate() {
@@ -44,15 +44,15 @@ class GeoCityOrVillageModel extends RestClientActiveRecord
 	}
 
 	public function canUpdate() {
-		return true; //($this->ctvStatus != enuGeoCityOrVillageStatus::REMOVED);
+		return true; //($this->ctvStatus != enuGeoCityOrVillageStatus::Removed);
 	}
 
 	public function canDelete() {
-		return true; //($this->ctvStatus != enuGeoCityOrVillageStatus::REMOVED);
+		return true; //($this->ctvStatus != enuGeoCityOrVillageStatus::Removed);
 	}
 
 	public function canUndelete() {
-		return false; //($this->ctvStatus == enuGeoCityOrVillageStatus::REMOVED);
+		return false; //($this->ctvStatus == enuGeoCityOrVillageStatus::Removed);
 	}
 
 }

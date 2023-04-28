@@ -13,6 +13,7 @@ class LoginByMobileForm extends Model
 {
   public $mobile;
   // public $code;
+  public $rememberMe = true;
   public $challenge;
 
   public function rules()
@@ -20,6 +21,7 @@ class LoginByMobileForm extends Model
     return [
       ['mobile', 'required'],
       // ['code', 'safe'],
+      ['rememberMe', 'boolean'],
     ];
   }
 
@@ -28,6 +30,7 @@ class LoginByMobileForm extends Model
 		return [
 			'mobile' => Yii::t('aaa', 'Mobile'),
 			// 'code' => Yii::t('aaa', 'code'),
+			'rememberMe' => Yii::t('aaa', 'Remember Me'),
 		];
 	}
 
@@ -42,6 +45,7 @@ class LoginByMobileForm extends Model
       [
         'mobile' => $this->mobile,
         // 'code' => $this->code,
+        'rememberMe' => $this->rememberMe,
       ]
     );
 

@@ -5,6 +5,7 @@
 
 use shopack\base\frontend\widgets\ActiveForm;
 use shopack\base\frontend\helpers\Html;
+use shopack\base\frontend\widgets\FormBuilder;
 ?>
 
 <div class='email-form'>
@@ -16,7 +17,20 @@ use shopack\base\frontend\helpers\Html;
 		$builder = $form->getBuilder();
 
 		$builder->fields([
-			['email'],
+			[
+				'email',
+				'type' => FormBuilder::FIELD_WIDGET,
+				'widget' => \yii\widgets\MaskedInput::class,
+				'widgetOptions' => [
+					'options' => [
+						'maxlength' => true,
+						'style' => 'direction:ltr;',
+					],
+					'clientOptions' => [
+						'alias' => 'email',
+					],
+				],
+			]
 		]);
 	?>
 

@@ -78,7 +78,7 @@ class ProfileController extends BaseController
 
       if ($formPosted) {
         return $this->renderJson([
-          'status' => 'ERROR',
+          'status' => 'Error',
           'message' => Yii::t('app', 'Error'),
           // 'id' => $id,
           'error' => Html::errorSummary($model),
@@ -127,7 +127,7 @@ class ProfileController extends BaseController
 
       if ($formPosted) {
         return $this->renderJson([
-          'status' => 'ERROR',
+          'status' => 'Error',
           'message' => Yii::t('app', 'Error'),
           // 'id' => $id,
           'error' => Html::errorSummary($model),
@@ -183,7 +183,7 @@ class ProfileController extends BaseController
 
       if ($formPosted) {
         return $this->renderJson([
-          'status' => 'ERROR',
+          'status' => 'Error',
           'message' => Yii::t('app', 'Error'),
           // 'id' => $id,
           'error' => Html::errorSummary($model),
@@ -237,6 +237,7 @@ class ProfileController extends BaseController
         $challengeModel->realm = 'login-by-mobile';
         $challengeModel->type = $model->challenge;
         $challengeModel->key = $model->mobile;
+        $challengeModel->rememberMe = $model->rememberMe;
 
         return AuthHelper::redirectToChallenge($challengeModel);
       }
@@ -251,6 +252,7 @@ class ProfileController extends BaseController
         //   $challengeModel->realm = 'login-by-mobile';
         //   $challengeModel->type = $challenge;
         //   $challengeModel->key = $model->mobile;
+        //   $challengeModel->rememberMe = $model->rememberMe;
 
         //   return AuthHelper::redirectToChallenge($challengeModel);
         // }
@@ -291,7 +293,7 @@ class ProfileController extends BaseController
 
       if ($formPosted) {
         return $this->renderJson([
-          'status' => 'ERROR',
+          'status' => 'Error',
           'message' => Yii::t('app', 'Error'),
           // 'id' => $id,
           'error' => Html::errorSummary($model),

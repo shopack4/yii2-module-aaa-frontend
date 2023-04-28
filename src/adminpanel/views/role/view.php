@@ -5,6 +5,7 @@
 
 /** @var yii\web\View $this */
 
+use shopack\base\frontend\widgets\PopoverX;
 use shopack\base\frontend\helpers\Html;
 use shopack\base\frontend\widgets\DetailView;
 use shopack\aaa\frontend\common\models\RoleModel;
@@ -23,60 +24,66 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $model->canUpdate()   ? Html::updateButton(null,   ['id' => $model->rolID]) : '' ?>
         <?= $model->canDelete()   ? Html::deleteButton(null,   ['id' => $model->rolID]) : '' ?>
         <?= $model->canUndelete() ? Html::undeleteButton(null, ['id' => $model->rolID]) : '' ?>
+        <?php
+          PopoverX::begin([
+            // 'header' => 'Hello world',
+            'closeButton' => false,
+            'toggleButton' => [
+              'label' => Yii::t('aaa', 'Logs'),
+              'class' => 'btn btn-default',
+            ],
+            'placement' => PopoverX::ALIGN_AUTO_BOTTOM,
+          ]);
+
+          echo DetailView::widget([
+            'model' => $model,
+            'enableEditMode' => false,
+            'attributes' => [
+              'rolCreatedAt:jalaliWithTime',
+              [
+                'attribute' => 'rolCreatedBy_User',
+                'value' => $model->createdByUser->actorName ?? '-',
+              ],
+              'rolUpdatedAt:jalaliWithTime',
+              [
+                'attribute' => 'rolUpdatedBy_User',
+                'value' => $model->updatedByUser->actorName ?? '-',
+              ],
+              'rolRemovedAt:jalaliWithTime',
+              [
+                'attribute' => 'rolRemovedBy_User',
+                'value' => $model->removedByUser->actorName ?? '-',
+              ],
+            ],
+          ]);
+
+          PopoverX::end();
+        ?>
 			</div>
       <div class='card-title'><?= Html::encode($this->title) ?></div>
 			<div class="clearfix"></div>
 		</div>
     <div class='card-body'>
-      <div class='row'>
-        <div class='col-8'>
-          <?php
-            $attributes = [
-              'rolID',
-              'rolName',
-              [
-                'attribute' => 'rolPrivs',
-                'value' => json_encode($model->rolPrivs),
-              ],
-              // [
-              //   'attribute' => 'rolStatus',
-              //   'value' => enuRoleStatus::getLabel($model->rolStatus),
-              // ],
-            ];
+      <?php
+        $attributes = [
+          'rolID',
+          'rolName',
+          [
+            'attribute' => 'rolPrivs',
+            'value' => json_encode($model->rolPrivs),
+          ],
+          // [
+          //   'attribute' => 'rolStatus',
+          //   'value' => enuRoleStatus::getLabel($model->rolStatus),
+          // ],
+        ];
 
-            echo DetailView::widget([
-              'model' => $model,
-              'enableEditMode' => false,
-              'attributes' => $attributes,
-            ]);
-          ?>
-        </div>
-        <div class='col-4'>
-        <?php
-            echo DetailView::widget([
-              'model' => $model,
-              'enableEditMode' => false,
-              'attributes' => [
-                'rolCreatedAt:jalaliWithTime',
-                [
-                  'attribute' => 'rolCreatedBy_User',
-                  'value' => $model->createdByUser->actorName() ?? '-',
-                ],
-                'rolUpdatedAt:jalaliWithTime',
-                [
-                  'attribute' => 'rolUpdatedBy_User',
-                  'value' => $model->updatedByUser->actorName() ?? '-',
-                ],
-                'rolRemovedAt:jalaliWithTime',
-                [
-                  'attribute' => 'rolRemovedBy_User',
-                  'value' => $model->removedByUser->actorName() ?? '-',
-                ],
-              ],
-            ]);
-          ?>
-        </div>
-      </div>
+        echo DetailView::widget([
+          'model' => $model,
+          'enableEditMode' => false,
+          'attributes' => $attributes,
+        ]);
+      ?>
     </div>
   </div>
 </div>

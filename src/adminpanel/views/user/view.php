@@ -5,6 +5,7 @@
 
 /** @var yii\web\View $this */
 
+use shopack\base\frontend\widgets\PopoverX;
 use shopack\base\frontend\widgets\DetailView;
 use shopack\base\frontend\helpers\Html;
 use shopack\aaa\frontend\common\models\UserModel;
@@ -25,6 +26,41 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $model->canUpdate()   ? Html::updateButton(null,   ['id' => $model->usrID]) : '' ?>
         <?= $model->canDelete()   ? Html::deleteButton(null,   ['id' => $model->usrID]) : '' ?>
         <?= $model->canUndelete() ? Html::undeleteButton(null, ['id' => $model->usrID]) : '' ?>
+        <?php
+          PopoverX::begin([
+            // 'header' => 'Hello world',
+            'closeButton' => false,
+            'toggleButton' => [
+              'label' => Yii::t('aaa', 'Logs'),
+              'class' => 'btn btn-default',
+            ],
+            'placement' => PopoverX::ALIGN_AUTO_BOTTOM,
+          ]);
+
+          echo DetailView::widget([
+            'model' => $model,
+            'enableEditMode' => false,
+            'attributes' => [
+              'usrCreatedAt:jalaliWithTime',
+              [
+                'attribute' => 'usrCreatedBy_User',
+                'value' => $model->createdByUser->actorName ?? '-',
+              ],
+              'usrUpdatedAt:jalaliWithTime',
+              [
+                'attribute' => 'usrUpdatedBy_User',
+                'value' => $model->updatedByUser->actorName ?? '-',
+              ],
+              'usrRemovedAt:jalaliWithTime',
+              [
+                'attribute' => 'usrRemovedBy_User',
+                'value' => $model->removedByUser->actorName ?? '-',
+              ],
+            ],
+          ]);
+
+          PopoverX::end();
+        ?>
 			</div>
       <div class='card-title'><?= Html::encode($this->title) ?></div>
 			<div class="clearfix"></div>
@@ -100,32 +136,6 @@ $this->params['breadcrumbs'][] = $this->title;
           ?>
         </div>
         <div class='col-4'>
-          <?php
-            echo DetailView::widget([
-              'model' => $model,
-              'enableEditMode' => false,
-              'attributes' => [
-                'usrCreatedAt:jalaliWithTime',
-                [
-                  'attribute' => 'usrCreatedBy_User',
-                  'value' => $model->createdByUser->actorName() ?? '-',
-                ],
-                'usrUpdatedAt:jalaliWithTime',
-                [
-                  'attribute' => 'usrUpdatedBy_User',
-                  'value' => $model->updatedByUser->actorName() ?? '-',
-                ],
-                'usrRemovedAt:jalaliWithTime',
-                [
-                  'attribute' => 'usrRemovedBy_User',
-                  'value' => $model->removedByUser->actorName() ?? '-',
-                ],
-              ],
-            ]);
-          ?>
-
-          <p>&nbsp;</p>
-
           <div class='card border-default'>
             <div class='card-header bg-default'>
               <div class="float-end">

@@ -5,6 +5,7 @@
 
 /** @var yii\web\View $this */
 
+use shopack\base\frontend\widgets\PopoverX;
 use shopack\base\common\helpers\Url;
 use shopack\base\common\helpers\HttpHelper;
 use shopack\base\common\helpers\ArrayHelper;
@@ -26,6 +27,42 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $model->canUpdate()   ? Html::updateButton(null,   ['id' => $model->twnID]) : '' ?>
         <?= $model->canDelete()   ? Html::deleteButton(null,   ['id' => $model->twnID]) : '' ?>
         <?= $model->canUndelete() ? Html::undeleteButton(null, ['id' => $model->twnID]) : '' ?>
+        <?php
+          PopoverX::begin([
+            // 'header' => 'Hello world',
+            'closeButton' => false,
+            'toggleButton' => [
+              'label' => Yii::t('aaa', 'Logs'),
+              'class' => 'btn btn-default',
+            ],
+            'placement' => PopoverX::ALIGN_AUTO_BOTTOM,
+          ]);
+
+          echo DetailView::widget([
+            'model' => $model,
+            'enableEditMode' => false,
+            // 'isVertical' => false,
+            'attributes' => [
+              'twnCreatedAt:jalaliWithTime',
+              [
+                'attribute' => 'twnCreatedBy_User',
+                'value' => $model->createdByUser->actorName ?? '-',
+              ],
+              'twnUpdatedAt:jalaliWithTime',
+              [
+                'attribute' => 'twnUpdatedBy_User',
+                'value' => $model->updatedByUser->actorName ?? '-',
+              ],
+              'twnRemovedAt:jalaliWithTime',
+              [
+                'attribute' => 'twnRemovedBy_User',
+                'value' => $model->removedByUser->actorName ?? '-',
+              ],
+            ],
+          ]);
+
+          PopoverX::end();
+        ?>
 			</div>
       <div class='card-title'><?= Html::encode($this->title) ?></div>
 			<div class="clearfix"></div>
@@ -35,7 +72,6 @@ $this->params['breadcrumbs'][] = $this->title;
         echo DetailView::widget([
           'model' => $model,
           'enableEditMode' => false,
-          'cols' => 2,
           // 'isVertical' => false,
           'attributes' => [
             'twnID',
@@ -47,21 +83,6 @@ $this->params['breadcrumbs'][] = $this->title;
             [
               'attribute' => 'twnCityID',
               'value' => $model->cityOrVillage->ctvName,
-            ],
-            'twnCreatedAt:jalaliWithTime',
-            [
-              'attribute' => 'twnCreatedBy_User',
-              'value' => $model->createdByUser->actorName() ?? '-',
-            ],
-            'twnUpdatedAt:jalaliWithTime',
-            [
-              'attribute' => 'twnUpdatedBy_User',
-              'value' => $model->updatedByUser->actorName() ?? '-',
-            ],
-            'twnRemovedAt:jalaliWithTime',
-            [
-              'attribute' => 'twnRemovedBy_User',
-              'value' => $model->removedByUser->actorName() ?? '-',
             ],
           ],
         ]);

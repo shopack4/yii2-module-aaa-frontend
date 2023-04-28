@@ -36,7 +36,7 @@ class GeoTownModel extends RestClientActiveRecord
 
 	public function isSoftDeleted()
   {
-    return false; //($this->twnStatus == enuGeoTownStatus::REMOVED);
+    return false; //($this->twnStatus == enuGeoTownStatus::Removed);
   }
 
 	public static function canCreate() {
@@ -44,15 +44,15 @@ class GeoTownModel extends RestClientActiveRecord
 	}
 
 	public function canUpdate() {
-		return true; //($this->twnStatus != enuGeoTownStatus::REMOVED);
+		return true; //($this->twnStatus != enuGeoTownStatus::Removed);
 	}
 
 	public function canDelete() {
-		return true; //($this->twnStatus != enuGeoTownStatus::REMOVED);
+		return true; //($this->twnStatus != enuGeoTownStatus::Removed);
 	}
 
 	public function canUndelete() {
-		return false; //($this->twnStatus == enuGeoTownStatus::REMOVED);
+		return false; //($this->twnStatus == enuGeoTownStatus::Removed);
 	}
 
 }

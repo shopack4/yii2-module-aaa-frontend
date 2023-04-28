@@ -122,7 +122,7 @@ abstract class BaseCrudController extends BaseController
 
       if ($formPosted) {
         return $this->renderJson([
-          'status' => 'ERROR',
+          'status' => 'Error',
           'message' => Yii::t('app', 'Error'),
           // 'id' => $id,
           'error' => Html::errorSummary($model),
@@ -166,7 +166,7 @@ abstract class BaseCrudController extends BaseController
 
       if ($formPosted) {
         return $this->renderJson([
-          'status' => 'ERROR',
+          'status' => 'Error',
           'message' => Yii::t('app', 'Error'),
           // 'id' => $id,
           'error' => Html::errorSummary($model),

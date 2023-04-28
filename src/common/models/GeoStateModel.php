@@ -36,7 +36,7 @@ class GeoStateModel extends RestClientActiveRecord
 
 	public function isSoftDeleted()
   {
-    return false; //($this->sttStatus == enuGeoStateStatus::REMOVED);
+    return false; //($this->sttStatus == enuGeoStateStatus::Removed);
   }
 
 	public static function canCreate() {
@@ -44,15 +44,15 @@ class GeoStateModel extends RestClientActiveRecord
 	}
 
 	public function canUpdate() {
-		return true; //($this->sttStatus != enuGeoStateStatus::REMOVED);
+		return true; //($this->sttStatus != enuGeoStateStatus::Removed);
 	}
 
 	public function canDelete() {
-		return true; //($this->sttStatus != enuGeoStateStatus::REMOVED);
+		return true; //($this->sttStatus != enuGeoStateStatus::Removed);
 	}
 
 	public function canUndelete() {
-		return false; //($this->sttStatus == enuGeoStateStatus::REMOVED);
+		return false; //($this->sttStatus == enuGeoStateStatus::Removed);
 	}
 
 }

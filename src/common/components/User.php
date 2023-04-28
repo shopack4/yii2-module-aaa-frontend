@@ -25,17 +25,50 @@ class User extends BaseUser
 	//current sessions jwt token dataset
 	public ?\Lcobucci\JWT\Token\Plain $accessToken = null;
 
-	public static function getJwtByCookie()
+	public function getJwtByCookie()
 	{
-    $cookieName = Yii::$app->user->identityCookie['name'];
+    $cookieName = $this->identityCookie['name'];
     $authCookie = Yii::$app->request->getCookies()->getValue($cookieName);
-    if ($authCookie !== null) {
-      $authCookie = json_decode($authCookie, true);
-      $authCookie = $authCookie[1];
-			return $authCookie;
-		}
 
-		return null;
+    if ($authCookie == null)
+			return null;
+
+		$authCookie = json_decode($authCookie, true);
+		$authCookie = $authCookie[1];
+
+		// $jwtPayload = explode('.', $authCookie);
+		// $jwtPayload = $jwtPayload[1];
+		// $jwtPayload = base64_decode($jwtPayload);
+		// $jwtPayload = json_decode($jwtPayload, true);
+
+		// if ($this->validateJwtPayload($jwtPayload) == false) {
+		// 	//is remember me checked? -> renew jwt
+		// 	if ($jwtPayload['rmmbr'] ?? 0) {
+
+		// 	}
+
+		// 	//else: login again
+		// 	return null;
+		// }
+
+		return $authCookie;
+	}
+
+	public function validateJwtPayload($jwtPayload)
+	{
+		if (empty($jwtPayload))
+			return false;
+
+		if (empty($jwtPayload['exp']))
+			return false;
+
+		$exp = $jwtPayload['exp'];
+		$exp = number_format((float)$exp, 6, '.', '');
+		$exp = \DateTimeImmutable::createFromFormat('U.u', $exp);
+
+		$now = new \DateTimeImmutable('now', new \DateTimeZone('UTC'));
+
+		return ($now < $exp);
 	}
 
 	protected function regenerateCsrfToken()

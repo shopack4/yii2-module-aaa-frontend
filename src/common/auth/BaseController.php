@@ -23,4 +23,17 @@ class BaseController extends \shopack\base\frontend\classes\BaseController
 		return $behaviors;
 	}
 
+	public function runAction($id, $params = [])
+	{
+		try {
+			return parent::runAction($id, $params);
+
+		} catch (\Throwable $th) {
+			if ($th->getMessage() == 'Your request was made with invalid or expired JSON Web Token.')
+				return $this->redirect(\Yii::$app->user->loginUrl);
+
+			throw $th;
+		}
+	}
+
 }

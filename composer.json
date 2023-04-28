@@ -23,7 +23,8 @@
         "kartik-v/yii2-bootstrap5-dropdown": "@dev",
         "kartik-v/yii2-detail-view": "dev-master",
         "kartik-v/yii2-tabs-x": "@dev",
-        "kartik-v/yii2-widgets": "@dev"
+        "kartik-v/yii2-widgets": "@dev",
+        "kartik-v/yii2-popover-x": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "4.8.34",

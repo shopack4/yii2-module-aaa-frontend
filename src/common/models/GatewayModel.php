@@ -42,7 +42,7 @@ class GatewayModel extends RestClientActiveRecord
 
 	public function isSoftDeleted()
   {
-    return ($this->gtwStatus == enuGatewayStatus::REMOVED);
+    return ($this->gtwStatus == enuGatewayStatus::Removed);
   }
 
 	public static function canCreate() {
@@ -50,15 +50,15 @@ class GatewayModel extends RestClientActiveRecord
 	}
 
 	public function canUpdate() {
-		return ($this->gtwStatus != enuGatewayStatus::REMOVED);
+		return ($this->gtwStatus != enuGatewayStatus::Removed);
 	}
 
 	public function canDelete() {
-		return ($this->gtwStatus != enuGatewayStatus::REMOVED);
+		return ($this->gtwStatus != enuGatewayStatus::Removed);
 	}
 
 	public function canUndelete() {
-		return ($this->gtwStatus == enuGatewayStatus::REMOVED);
+		return ($this->gtwStatus == enuGatewayStatus::Removed);
 	}
 
 }

@@ -44,6 +44,7 @@ class LoginForm extends Model
       [
         'input' => $this->username,
         'password' => $this->password,
+        'rememberMe' => $this->rememberMe,
       ]
     );
 

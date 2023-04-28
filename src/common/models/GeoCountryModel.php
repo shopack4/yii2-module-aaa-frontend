@@ -35,7 +35,7 @@ class GeoCountryModel extends RestClientActiveRecord
 
 	public function isSoftDeleted()
   {
-    return false; //($this->cntrStatus == enuGeoCountryStatus::REMOVED);
+    return false; //($this->cntrStatus == enuGeoCountryStatus::Removed);
   }
 
 	public static function canCreate() {
@@ -43,15 +43,15 @@ class GeoCountryModel extends RestClientActiveRecord
 	}
 
 	public function canUpdate() {
-		return true; //($this->cntrStatus != enuGeoCountryStatus::REMOVED);
+		return true; //($this->cntrStatus != enuGeoCountryStatus::Removed);
 	}
 
 	public function canDelete() {
-		return true; //($this->cntrStatus != enuGeoCountryStatus::REMOVED);
+		return true; //($this->cntrStatus != enuGeoCountryStatus::Removed);
 	}
 
 	public function canUndelete() {
-		return false; //($this->cntrStatus == enuGeoCountryStatus::REMOVED);
+		return false; //($this->cntrStatus == enuGeoCountryStatus::Removed);
 	}
 
 }

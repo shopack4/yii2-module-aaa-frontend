@@ -47,16 +47,21 @@ $this->params['breadcrumbs'][] = $this->title;
 		]); ?>
 
 		<div class="form-group">
-			<div class="col text-end">
-			<?php
-				echo Html::submitButton(Yii::t('aaa', 'Login'), ['class' => 'btn btn-primary btn-sm', 'name' => 'login-button']);
-			?>
+			<div class='row'>
+				<div class="col">
+					<?= $form->field($model, 'rememberMe')->checkbox([], true) ?>
+				</div>
+				<div class="col text-end">
+					<?php
+						echo Html::submitButton(Yii::t('aaa', 'Login'), ['class' => 'btn btn-primary btn-sm', 'name' => 'login-button']);
+					?>
+				</div>
 			</div>
 			<div>
-			<?php
-				if (empty($message) == false)
-					echo $message;
-			?>
+				<?php
+					if (empty($message) == false)
+						echo $message;
+				?>
 			</div>
 			<hr>
 			<div class="col">

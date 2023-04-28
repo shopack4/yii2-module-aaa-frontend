@@ -139,6 +139,7 @@ class AuthController extends BaseController
           $challengeModel->realm = 'signup';
           $challengeModel->type = $challenge;
           $challengeModel->key = $model->mobile;
+          $challengeModel->rememberMe = $model->rememberMe;
 
           return AuthHelper::redirectToChallenge($challengeModel);
         }
@@ -185,6 +186,7 @@ class AuthController extends BaseController
         $challengeModel->realm = 'login-by-mobile';
         $challengeModel->type = $model->challenge;
         $challengeModel->key = $model->mobile;
+        $challengeModel->rememberMe = $model->rememberMe;
 
         return AuthHelper::redirectToChallenge($challengeModel);
       }
@@ -199,6 +201,7 @@ class AuthController extends BaseController
         //   $challengeModel->realm = 'login-by-mobile';
         //   $challengeModel->type = $challenge;
         //   $challengeModel->key = $model->mobile;
+        //   $challengeModel->rememberMe = $model->rememberMe;
 
         //   return AuthHelper::redirectToChallenge($challengeModel);
         // }
@@ -252,6 +255,7 @@ class AuthController extends BaseController
         $challengeModel->realm = 'login-by-mobile';
         $challengeModel->type = $model->challenge;
         $challengeModel->key = $model->mobile;
+        $challengeModel->rememberMe = $model->rememberMe;
 
         return AuthHelper::redirectToChallenge($challengeModel);
       }
@@ -266,6 +270,7 @@ class AuthController extends BaseController
         //   $challengeModel->realm = 'login-by-mobile';
         //   $challengeModel->type = $challenge;
         //   $challengeModel->key = $model->mobile;
+        //   $challengeModel->rememberMe = $model->rememberMe;
 
         //   return AuthHelper::redirectToChallenge($challengeModel);
         // }
@@ -290,7 +295,8 @@ class AuthController extends BaseController
     $realm = null,
     $type = null,
     $key = null,
-    $value = null
+    $value = null,
+    $rememberMe = false
   ) {
     $model = new ChallengeForm();
     $post = Yii::$app->request->post();
@@ -300,6 +306,7 @@ class AuthController extends BaseController
       $model->type = $type;
       $model->key = $key;
       $model->value = $value;
+      $model->rememberMe = $rememberMe;
     }
 
     if (empty($model->realm)
@@ -430,6 +437,7 @@ class AuthController extends BaseController
         $challengeModel->realm = 'accept-approval';
         $challengeModel->type = $model->challenge;
         $challengeModel->key = $model->mobile;
+        $challengeModel->rememberMe = $model->rememberMe;
 
         return AuthHelper::redirectToChallenge($challengeModel);
       }
@@ -444,6 +452,7 @@ class AuthController extends BaseController
         //   $challengeModel->realm = 'login-by-mobile';
         //   $challengeModel->type = $challenge;
         //   $challengeModel->key = $model->mobile;
+        //   $challengeModel->rememberMe = $model->rememberMe;
 
         //   return AuthHelper::redirectToChallenge($challengeModel);
         // }

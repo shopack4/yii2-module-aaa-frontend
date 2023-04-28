@@ -20,8 +20,22 @@ use shopack\aaa\common\enums\enuGender;
 
 		//https://github.com/Borales/yii2-phone-input
 		$builder->fields([
-			['usrEmail'],
-			['usrMobile',
+			[
+				'usrEmail',
+				'type' => FormBuilder::FIELD_WIDGET,
+				'widget' => \yii\widgets\MaskedInput::class,
+				'widgetOptions' => [
+					'options' => [
+						'maxlength' => true,
+						'style' => 'direction:ltr;',
+					],
+					'clientOptions' => [
+						'alias' => 'email',
+					],
+				],
+			],
+			[
+				'usrMobile',
 				'type' => FormBuilder::FIELD_WIDGET,
 				'widget' => PhoneInput::class,
 				'widgetOptions' => [
@@ -35,7 +49,9 @@ use shopack\aaa\common\enums\enuGender;
 					],
 				],
 			],
-			['usrSSID']
+			[
+				'usrSSID',
+			],
 		]);
 
 		// echo $form->field($model, 'usrGender')

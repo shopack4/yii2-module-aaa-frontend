@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
           'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
 				'rowOptions' => function($model) {
-					if ($model->usrStatus == enuUserStatus::REMOVED)
+					if ($model->usrStatus == enuUserStatus::Removed)
 						return ['class' => 'table-danger'];
 				},
         'columns' => [
