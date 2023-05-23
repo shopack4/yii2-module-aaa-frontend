@@ -5,7 +5,7 @@
 
 /** @var yii\web\View $this */
 
-use kartik\grid\GridView;
+use shopack\base\frontend\widgets\grid\GridView;
 use shopack\base\frontend\helpers\Html;
 use shopack\base\common\helpers\StringHelper;
 use shopack\aaa\common\enums\enuUserStatus;
@@ -139,7 +139,6 @@ $this->params['breadcrumbs'][] = $this->title;
         //     'before' => '<div style="padding-top: 7px;"><em>* Resize table columns just like a spreadsheet by dragging the column edges.</em></div>',
         // ],
         // // set export properties
-        'export' => false,
         // 'export' => [
         //   'fontAwesome' => true
         // ],

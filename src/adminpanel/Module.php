@@ -9,9 +9,9 @@ use Yii;
 use yii\base\BootstrapInterface;
 use shopack\aaa\frontend\common\controllers\AuthController;
 use shopack\aaa\frontend\common\controllers\ProfileController;
-use shopack\aaa\frontend\common\controllers\BasketController;
-use shopack\aaa\frontend\common\controllers\WalletController;
-use shopack\aaa\frontend\common\controllers\FinController;
+// use shopack\aaa\frontend\common\controllers\BasketController;
+// use shopack\aaa\frontend\common\controllers\WalletController;
+// use shopack\aaa\frontend\common\controllers\FinController;
 
 class Module
 	extends \shopack\base\common\base\BaseModule
@@ -31,9 +31,9 @@ class Module
 
 			$this->controllerMap['auth'] = AuthController::class;
 			$this->controllerMap['profile'] = ProfileController::class;
-			$this->controllerMap['basket'] = BasketController::class;
-			$this->controllerMap['wallet'] = WalletController::class;
-			$this->controllerMap['fin'] = FinController::class;
+			// $this->controllerMap['basket'] = BasketController::class;
+			// $this->controllerMap['wallet'] = WalletController::class;
+			// $this->controllerMap['fin'] = FinController::class;
 
 			$rules = [
 				[

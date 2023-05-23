@@ -5,7 +5,7 @@
 
 /** @var yii\web\View $this */
 
-use kartik\grid\GridView;
+use shopack\base\frontend\widgets\grid\GridView;
 use shopack\base\frontend\helpers\Html;
 use shopack\base\common\helpers\StringHelper;
 use shopack\aaa\frontend\common\models\GeoCityOrVillageModel;
@@ -80,7 +80,6 @@ use shopack\aaa\frontend\common\models\GeoCityOrVillageModel;
         ],
       ]
     ],
-    'export' => false,
   ]);
 
 ?>

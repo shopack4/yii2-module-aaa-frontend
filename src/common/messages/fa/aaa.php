@@ -34,6 +34,7 @@ return [
 	'Verify' => 'بررسی کد',
 	'Please wait' => 'لطفا صبر کنید',
 	'Resend Code' => 'ارسال مجدد کد',
+	'For resend code, please wait {0}' => 'برای ارسال مجدد {0} صبر کنید',
 
 	'CODE_SENT' => 'کد ارسال شد',
 	'CODE_RESENT' => 'کد مجددا ارسال شد',
@@ -62,14 +63,14 @@ return [
 	'Plugin Restrictions' => 'محدودیت‌ها',
 	'Plugin Usages' => 'مصرف',
 
-	'sms' => 'پیام کوتاه',
+	'sms' => 'پیامک',
 	'payment' => 'پرداخت',
 	'objectstorage' => 'ذخیره ساز فایل',
 
 	'Line Number' => 'شماره خط',
 	'Allowed Caller IPs' => 'آی پی‌های مجاز صدا کننده وب هوک',
 	'Allowed Caller URLs' => 'آدرس‌های مجاز صدا کننده وب هوک',
-	'Check Incomming SMS' => 'بررسی پیام کوتاه‌های دریافتی',
+	'Check Incomming SMS' => 'بررسی پیامک‌های دریافتی',
 
 	'My Details' => 'مشخصات من',
 	'Login Information' => 'اطلاعات ورود',
@@ -110,7 +111,7 @@ return [
 
 	'Webhooks' => 'وب هوک‌ها',
 
-	'Receive Sms' => 'دریافت پیام کوتاه',
+	'Receive Sms' => 'دریافت پیامک',
 
 	'Online Payments' => 'پرداخت‌های آنلاین',
 	'Online Payment' => 'پرداخت آنلاین',
@@ -124,11 +125,25 @@ return [
 	'Create Wallet' => 'ایجاد کیف پول',
 	'Update Wallet' => 'ویرایش کیف پول',
 
-	'Increase Balance' => 'افزایش موجودی',
+	'Wallet Transactions' => 'تراکنش‌های کیف پول',
+	'Wallet Transaction' => 'تراکنش کیف پول',
+	'Wallet Transaction Info' => 'مشخصات تراکنش کیف پول',
+
 	'Amount' => 'مبلغ',
 	'Remained Amount' => 'موجودی',
 
+	'Increase Balance' => 'افزایش موجودی',
+	'Wallet Increase' => 'افزایش موجودی کیف پول',
+	'Wallet incresed {0} tomans' => 'موجودی کیف پول به میزان {0} تومان افزایش پیدا کرد.',
+	'Error in online payment' => 'خطا در پرداخت آنلاین',
+	'Error in online payment {0}' => 'خطا در پرداخت آنلاین: {0}',
+	'Return to the wallet' => 'بازگشت به کیف پول',
 
+	'Vouchers' => 'اسناد مالی',
+	'Voucher' => 'سند مالی',
+	'Voucher Info' => 'مشخصات سند مالی',
+	// 'Create Voucher' => 'ایجاد کیف پول',
+	// 'Update Voucher' => 'ویرایش کیف پول',
 
 
 
@@ -203,7 +218,7 @@ return [
 	'{count,number} Configuration Items Saved' => '{count,number} آیتم پیکربندی ذخیره شد',
 	'Image' => 'تصویر',
 	'Save Image' => 'ذخیره تصویر',
-	'Messages' => 'پیغام‌ها',
+	'Update Image' => 'تغییر تصویر',
 	'Addresses' => 'آدرس‌ها',
 	'My Control Panel' => 'میزکار من',
 	'Send Confirmation Email' => 'ارسال ایمیل تایید',
@@ -272,8 +287,9 @@ return [
 	'Next' => 'بعدی',
 	'Plugin Name' => 'راه‌انداز',
 	'Active' => 'فعال',
-	'Send SMS To Not Approved Numbers' => 'ارسال پیام کوتاه به شماره‌ی تایید نشده',
-	'SMS: After Signup' => 'پیام کوتاه: ثبت نام کاربر جدید',
+	'Inactive' => 'غیر فعال',
+	'Send SMS To Not Approved Numbers' => 'ارسال پیامک به شماره‌ی تایید نشده',
+	'SMS: After Signup' => 'پیامک: ثبت نام کاربر جدید',
 	'Icon' => 'آیکون',
 	'Icon Type' => 'نوع آیکون',
 	'Collapsed' => 'بسته شده',
@@ -338,9 +354,9 @@ return [
 	// 'Message Center' => 'مرکز پیام',
 	'Get File' => 'دریافت فایل',
 
-	'Sms' => 'پیام کوتاه',
-	'Create Sms' => 'ایجاد پیام کوتاه',
-	'Update Sms' => 'ویرایش پیام کوتاه',
+	'Sms' => 'پیامک',
+	'Create Sms' => 'ایجاد پیامک',
+	'Update Sms' => 'ویرایش پیامک',
 
 	'You must fill at least {min} of the attributes {attributes}.' => 'لازم است دست کم {min} از گزینه‌های {attributes} پر شود.',
 	' or ' => ' یا ',
@@ -361,7 +377,6 @@ return [
 	'Inbound' => 'دریافتی',
 	'Outbound' => 'ارسالی',
 	'Is Inbound' => 'دریافتی است؟',
-	'Message' => 'پیام',
 	'From' => 'از',
 	'To' => 'به',
 	'Request' => 'درخواست',
@@ -423,6 +438,41 @@ return [
 	'Deleted Files Size' => 'حجم فایل‌های حذف شده',
 	'Last Action Time' => 'آخرین زمان عملیات',
 
-	'Shopping Card' => 'سبد خرید',
+	'Baskets' => 'سبدهای خرید',
 	'Basket' => 'سبد خرید',
+	'Shopping Card' => 'سبد خرید',
+	'Shopping Card - Payment Method' => 'سبد خرید - روش پرداخت',
+	'Shopping card is empty' => 'سبد خرید خالی است',
+	'Payment Method' => 'روش پرداخت',
+
+	'Unit Price' => 'قیمت واحد',
+	'Total Price' => 'قیمت کل',
+	'Saleable' => 'طرح فروش',
+
+	'Checkout' => 'ثبت سفارش',
+	'Basket checked out' => 'سبد خرید شما تسویه و ثبت شد',
+	'Error in checkout' => 'خطا در ثبت سفارش',
+	'Error in checkout ({0})' => 'خطا در ثبت سفارش ({0})',
+
+	'Credit' => 'اعتبار',
+
+	'New' => 'جدید',
+	'Pending' => 'در انتظار',
+	'Paid' => 'پرداخت شده',
+	'Error' => 'خطا',
+	'Removed' => 'حذف شده',
+	'Settled' => 'تسویه شده',
+	'Finished' => 'پایان یافته',
+
+	'Track Number' => 'شماره پیگیری',
+	'Order' => 'سفارش',
+	'Orders' => 'سفارشات',
+
+	'Message Templates' => 'قالب‌های پیام',
+	'Message Template' => 'قالب پیام',
+
+	'Messages' => 'پیام‌ها',
+	'Message' => 'پیام',
+	'Send Message' => 'ارسال پیام',
+
 ];

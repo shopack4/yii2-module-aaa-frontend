@@ -20,7 +20,7 @@ class ApprovalRequestController extends BaseController
 
     $searchModel = new ApprovalRequestSearchModel();
 		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-		$dataProvider->query->andWhere(['aprUserID' => Yii::$app->user->identity->usrID]);
+		$dataProvider->query->andWhere(['aprUserID' => Yii::$app->user->id]);
 
     $viewParams = [
 			'searchModel' => $searchModel,

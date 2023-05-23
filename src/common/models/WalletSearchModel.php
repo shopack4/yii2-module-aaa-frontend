@@ -25,8 +25,8 @@ class WalletSearchModel extends WalletModel
 	{
 		$query = self::find();
 
-		if ($params['justForMe'] ?? $_GET['justForMe'] ?? false)
-			$query->addUrlParameter('justForMe', 1);
+		// if ($params['justForMe'] ?? $_GET['justForMe'] ?? false)
+		// 	$query->addUrlParameter('justForMe', 1);
 
 		$dataProvider = new RestClientDataProvider([
 			'query' => $query,
@@ -60,6 +60,9 @@ class WalletSearchModel extends WalletModel
 			// $query->where('0=1');
 			return $dataProvider;
 		}
+
+		if (isset($params['walOwnerUserID']))
+			$query->andWhere(['walOwnerUserID' => $params['walOwnerUserID']]);
 
 		$this->applySearchValuesInQuery($query);
 

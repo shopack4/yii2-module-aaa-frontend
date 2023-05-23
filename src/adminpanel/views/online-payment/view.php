@@ -43,16 +43,19 @@ $this->params['breadcrumbs'][] = $this->title;
               'onpCreatedAt:jalaliWithTime',
               [
                 'attribute' => 'onpCreatedBy_User',
+                'format' => 'raw',
                 'value' => $model->createdByUser->actorName ?? '-',
               ],
               'onpUpdatedAt:jalaliWithTime',
               [
                 'attribute' => 'onpUpdatedBy_User',
+                'format' => 'raw',
                 'value' => $model->updatedByUser->actorName ?? '-',
               ],
               'onpRemovedAt:jalaliWithTime',
               [
                 'attribute' => 'onpRemovedBy_User',
+                'format' => 'raw',
                 'value' => $model->removedByUser->actorName ?? '-',
               ],
             ],

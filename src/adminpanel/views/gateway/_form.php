@@ -3,6 +3,7 @@
  * @author Kambiz Zandi <kambizzandi@gmail.com>
  */
 
+use yii\web\JsExpression;
 use shopack\base\common\helpers\Url;
 use shopack\base\frontend\widgets\Select2;
 use shopack\base\frontend\widgets\DepDrop;
@@ -11,7 +12,6 @@ use shopack\base\common\helpers\HttpHelper;
 use shopack\base\frontend\widgets\ActiveForm;
 use shopack\base\frontend\widgets\FormBuilder;
 use shopack\aaa\common\enums\enuGatewayStatus;
-use yii\web\JsExpression;
 
 // \shopack\base\frontend\DynamicParamsFormAsset::register($this);
 ?>

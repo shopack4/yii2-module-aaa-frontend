@@ -60,7 +60,7 @@ abstract class BaseCrudController extends BaseController
 		$searchModelClass = $this->searchModelClass;
 
     $searchModel = new $searchModelClass();
-		$dataProvider = $searchModel->search($this->getSearchParams());
+		$dataProvider = $searchModel->search(array_merge($this->getSearchParams(), $params));
 
     $viewParams = [
 			'searchModel' => $searchModel,
@@ -103,6 +103,7 @@ abstract class BaseCrudController extends BaseController
   public function actionCreate()
   {
     $model = new $this->modelClass;
+    $model->applyDefaultValuesFromColumnsInfo();
     $this->actionCreate_afterCreateModel($model);
 
 		$formPosted = $model->load(Yii::$app->request->post());
@@ -142,9 +143,14 @@ abstract class BaseCrudController extends BaseController
     ]);
   }
 
+  public function actionUpdate_afterCreateModel(&$model)
+  {
+  }
+
   public function actionUpdate($id)
   {
 		$model = $this->findModel($id);
+    $this->actionUpdate_afterCreateModel($model);
 
     if ($model->isSoftDeleted())
       throw new BadRequestHttpException('این آیتم حذف شده است و قابل ویرایش نمی‌باشد.');

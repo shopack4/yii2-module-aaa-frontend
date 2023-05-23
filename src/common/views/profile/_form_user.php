@@ -138,7 +138,6 @@ use shopack\aaa\frontend\common\models\GeoCountryModel;
 					],
 				],
 			],
-
 			['usrZipCode'],
 			['@col' => 1],
 			[

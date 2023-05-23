@@ -47,7 +47,7 @@ class MobileChangeForm extends Model
     );
 
     if ($resultStatus < 200 || $resultStatus >= 300)
-      throw new \Exception(Yii::t('aaa', $resultData['message'], $resultData));
+      throw new \yii\web\HttpException($resultStatus, Yii::t('aaa', $resultData['message'], $resultData));
 
     if (isset($resultData['challenge'])) {
       $this->challenge = $resultData['challenge'];

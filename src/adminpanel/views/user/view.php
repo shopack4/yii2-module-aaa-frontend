@@ -44,16 +44,19 @@ $this->params['breadcrumbs'][] = $this->title;
               'usrCreatedAt:jalaliWithTime',
               [
                 'attribute' => 'usrCreatedBy_User',
+                'format' => 'raw',
                 'value' => $model->createdByUser->actorName ?? '-',
               ],
               'usrUpdatedAt:jalaliWithTime',
               [
                 'attribute' => 'usrUpdatedBy_User',
+                'format' => 'raw',
                 'value' => $model->updatedByUser->actorName ?? '-',
               ],
               'usrRemovedAt:jalaliWithTime',
               [
                 'attribute' => 'usrRemovedBy_User',
+                'format' => 'raw',
                 'value' => $model->removedByUser->actorName ?? '-',
               ],
             ],

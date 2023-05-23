@@ -22,7 +22,7 @@ class UserController extends BaseCrudController
 	// 		return $this->goHome();
 
   //   return $this->render('profile/profile', [
-  //     'model' => $this->findModel(Yii::$app->user->identity->usrID),
+  //     'model' => $this->findModel(Yii::$app->user->id),
   //   ]);
 	// }
 
@@ -38,7 +38,7 @@ class UserController extends BaseCrudController
     if (!empty($q)) {
 			$q = strtolower(trim($q));
 			$query = UserModel::find()
-				->orWhere("usrID = {$q}")
+				// ->orWhere("usrID = '{$q}'")
 				->orWhere("LOWER(usrLastName) LIKE '%{$q}%'")
 				->orWhere("LOWER(usrFirstName) LIKE '%{$q}%'")
 				->orWhere("LOWER(usrEmail) LIKE '%{$q}%'")

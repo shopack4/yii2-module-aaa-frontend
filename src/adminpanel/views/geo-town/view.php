@@ -46,16 +46,19 @@ $this->params['breadcrumbs'][] = $this->title;
               'twnCreatedAt:jalaliWithTime',
               [
                 'attribute' => 'twnCreatedBy_User',
+                'format' => 'raw',
                 'value' => $model->createdByUser->actorName ?? '-',
               ],
               'twnUpdatedAt:jalaliWithTime',
               [
                 'attribute' => 'twnUpdatedBy_User',
+                'format' => 'raw',
                 'value' => $model->updatedByUser->actorName ?? '-',
               ],
               'twnRemovedAt:jalaliWithTime',
               [
                 'attribute' => 'twnRemovedBy_User',
+                'format' => 'raw',
                 'value' => $model->removedByUser->actorName ?? '-',
               ],
             ],

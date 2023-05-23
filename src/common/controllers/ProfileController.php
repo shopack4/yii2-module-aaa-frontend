@@ -35,7 +35,7 @@ class ProfileController extends BaseController
 
 	protected function findUserModel()
 	{
-		if (($model = UserModel::findOne(Yii::$app->user->identity->usrID)) === null)
+		if (($model = UserModel::findOne(Yii::$app->user->id)) === null)
       throw new NotFoundHttpException('The requested item not exist.');
 
     return $model;

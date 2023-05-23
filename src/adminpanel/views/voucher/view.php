@@ -45,16 +45,19 @@ $this->params['breadcrumbs'][] = $this->title;
               'vchCreatedAt:jalaliWithTime',
               [
                 'attribute' => 'vchCreatedBy_User',
+                'format' => 'raw',
                 'value' => $model->createdByUser->actorName ?? '-',
               ],
               'vchUpdatedAt:jalaliWithTime',
               [
                 'attribute' => 'vchUpdatedBy_User',
+                'format' => 'raw',
                 'value' => $model->updatedByUser->actorName ?? '-',
               ],
               'vchRemovedAt:jalaliWithTime',
               [
                 'attribute' => 'vchRemovedBy_User',
+                'format' => 'raw',
                 'value' => $model->removedByUser->actorName ?? '-',
               ],
             ],

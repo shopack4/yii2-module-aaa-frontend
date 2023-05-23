@@ -79,14 +79,14 @@ class ImageChangeForm extends Model
     list ($resultStatus, $resultData) = HttpHelper::callApi('aaa/user/update-image',
       HttpHelper::METHOD_POST,
       [
-        'id' => Yii::$app->user->identity->usrID,
+        'id' => Yii::$app->user->id,
       ],
       [],
       $files,
     );
 
     if ($resultStatus < 200 || $resultStatus >= 300)
-      throw new \Exception(Yii::t('aaa', $resultData['message'], $resultData));
+      throw new \yii\web\HttpException($resultStatus, Yii::t('aaa', $resultData['message'], $resultData));
 
     return true; //[$resultStatus, $resultData['result']];
   }

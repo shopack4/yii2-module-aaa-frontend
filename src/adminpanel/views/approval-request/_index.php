@@ -5,7 +5,7 @@
 
 /** @var yii\web\View $this */
 
-use kartik\grid\GridView;
+use shopack\base\frontend\widgets\grid\GridView;
 use shopack\base\frontend\helpers\Html;
 use shopack\base\common\helpers\StringHelper;
 use shopack\aaa\frontend\common\models\ApprovalRequestModel;
@@ -61,7 +61,6 @@ use shopack\aaa\common\enums\enuApprovalRequestStatus;
         },
       ],
     ],
-    'export' => false,
   ]);
 
 ?>

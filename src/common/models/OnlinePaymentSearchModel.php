@@ -6,6 +6,7 @@
 namespace shopack\aaa\frontend\common\models;
 
 use yii\base\Model;
+use shopack\base\common\helpers\ArrayHelper;
 use shopack\base\frontend\rest\RestClientDataProvider;
 use shopack\aaa\frontend\common\models\OnlinePaymentModel;
 
@@ -13,14 +14,26 @@ class OnlinePaymentSearchModel extends OnlinePaymentModel
 {
 	use \shopack\base\common\db\SearchModelTrait;
 
-	// public function attributeLabels()
-	// {
-	// 	return ArrayHelper::merge(parent::attributeLabels(), [
-	// 		'usrssnLoginDateTime' => 'آخرین ورود',
-	// 		'loginDateTime' => 'آخرین ورود',
-	// 		'online' => 'آنلاین',
-	// 	]);
-	// }
+	public $vchOwnerUserID;
+
+	public function extraRules()
+	{
+		return [
+			[[
+				'vchOwnerUserID',
+			], 'number'],
+			[[
+				'vchOwnerUserID',
+			], 'default', 'value' => null],
+		];
+	}
+
+	public function attributeLabels()
+	{
+		return ArrayHelper::merge(parent::attributeLabels(), [
+			'vchOwnerUserID' => 'مالک',
+		]);
+	}
 
 	public function scenarios()
 	{
@@ -45,6 +58,8 @@ class OnlinePaymentSearchModel extends OnlinePaymentModel
 					// 'onpAmount',
 					'onpStatus',
 					'onpCreatedAt' => [
+						'asc'		=> ['onpCreatedAt' => SORT_ASC,		'onpID' => SORT_ASC],
+						'desc'	=> ['onpCreatedAt' => SORT_DESC,	'onpID' => SORT_DESC],
 						'default' => SORT_DESC,
 					],
 					'onpCreatedBy',
@@ -57,6 +72,9 @@ class OnlinePaymentSearchModel extends OnlinePaymentModel
 					],
 					'onpRemovedBy',
 				],
+				'defaultOrder' => [
+					'onpCreatedAt' => SORT_DESC,
+				]
 			],
 		]);
 
@@ -67,6 +85,11 @@ class OnlinePaymentSearchModel extends OnlinePaymentModel
 			// $query->where('0=1');
 			return $dataProvider;
 		}
+
+		if (isset($this->vchOwnerUserID))
+			$query->andWhere(['vchOwnerUserID' => $this->vchOwnerUserID]);
+		else if (isset($params['vchOwnerUserID']))
+			$query->andWhere(['vchOwnerUserID' => $params['vchOwnerUserID']]);
 
 		$this->applySearchValuesInQuery($query);
 

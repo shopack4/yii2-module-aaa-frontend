@@ -6,7 +6,6 @@
 use shopack\base\frontend\helpers\Html;
 
 $this->title = Yii::t('aaa', 'Update Image');
-$this->params['breadcrumbs'][] = Yii::t('aaa', 'System');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

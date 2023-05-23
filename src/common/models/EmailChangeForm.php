@@ -49,7 +49,7 @@ class EmailChangeForm extends Model
     );
 
     if ($resultStatus < 200 || $resultStatus >= 300)
-      throw new \Exception(Yii::t('aaa', $resultData['message'], $resultData));
+      throw new \yii\web\HttpException($resultStatus, Yii::t('aaa', $resultData['message'], $resultData));
 
     return true; //[$resultStatus, $resultData['result']];
   }

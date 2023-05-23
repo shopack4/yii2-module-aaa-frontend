@@ -82,8 +82,7 @@ use shopack\aaa\frontend\common\models\GeoCountryModel;
 		}
 
 		$builder->fields([
-			[
-				'usrCountryID',
+			['usrCountryID',
 				'type' => FormBuilder::FIELD_WIDGET,
 				'widget' => Select2::class,
 				'widgetOptions' => [
@@ -97,8 +96,7 @@ use shopack\aaa\frontend\common\models\GeoCountryModel;
 					],
 				],
 			],
-			[
-				'usrStateID',
+			['usrStateID',
 				'type' => FormBuilder::FIELD_WIDGET,
 				'widget' => DepDrop::class,
 				'widgetOptions' => [
@@ -121,8 +119,7 @@ use shopack\aaa\frontend\common\models\GeoCountryModel;
 					],
 				],
 			],
-			[
-				'usrCityOrVillageID',
+			['usrCityOrVillageID',
 				'type' => FormBuilder::FIELD_WIDGET,
 				'widget' => DepDrop::class,
 				'widgetOptions' => [
@@ -145,8 +142,7 @@ use shopack\aaa\frontend\common\models\GeoCountryModel;
 					],
 				],
 			],
-			[
-				'usrTownID',
+			['usrTownID',
 				'type' => FormBuilder::FIELD_WIDGET,
 				'widget' => DepDrop::class,
 				'widgetOptions' => [

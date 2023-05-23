@@ -26,7 +26,10 @@ class OnlinePaymentModel extends RestClientActiveRecord
 			'onpGatewayID'        => Yii::t('aaa', 'Gateway'),
 			'onpVoucherID'        => Yii::t('aaa', 'Voucher'),
 			'onpAmount'           => Yii::t('aaa', 'Amount'),
+			'onpCallbackUrl'      => Yii::t('aaa', 'Callback Url'),
+			'onpWalletID'         => Yii::t('aaa', 'Wallet'),
 			'onpTrackNumber'      => Yii::t('aaa', 'Track Number'),
+			'onpRRN'      				=> Yii::t('aaa', 'RRN'),
 			'onpStatus'           => Yii::t('app', 'Status'),
 			'onpCreatedAt'        => Yii::t('app', 'Created At'),
 			'onpCreatedBy'        => Yii::t('app', 'Created By'),
@@ -72,7 +75,7 @@ class OnlinePaymentModel extends RestClientActiveRecord
 		);
 
 		if ($resultStatus < 200 || $resultStatus >= 300)
-			throw new \Exception(Yii::t('mha', $resultData['message'], $resultData));
+			throw new \yii\web\HttpException($resultStatus, Yii::t('mha', $resultData['message'], $resultData));
 
 		$types = [];
 

@@ -280,11 +280,11 @@ $this->params['breadcrumbs'][] = $this->title;
 			?>
 			<?php $tabs->endTabPage(); ?>
 
-			<?php $tabs->newAjaxTabPage(Yii::t('aaa', 'Deleted Accounts'), [
+			<?php /* $tabs->newAjaxTabPage(Yii::t('aaa', 'Deleted Accounts'), [
           '/aaa/profile/deleted-accounts'
         ],
         'accounts'
-      ); ?>
+      ); */ ?>
 
       <?php $tabs->end(); ?>
     </div>

@@ -37,7 +37,7 @@ class ApproveCodeForm extends Model
     );
 
     if ($resultStatus < 200 || $resultStatus >= 300)
-      throw new \Exception(Yii::t('aaa', $resultData['message'], $resultData));
+      throw new \yii\web\HttpException($resultStatus, Yii::t('aaa', $resultData['message'], $resultData));
 
     //check result['token'] -> set cookie
 

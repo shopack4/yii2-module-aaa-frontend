@@ -46,16 +46,19 @@ $this->params['breadcrumbs'][] = $this->title;
               'cntrCreatedAt:jalaliWithTime',
               [
                 'attribute' => 'cntrCreatedBy_User',
+                'format' => 'raw',
                 'value' => $model->createdByUser->actorName ?? '-',
               ],
               'cntrUpdatedAt:jalaliWithTime',
               [
                 'attribute' => 'cntrUpdatedBy_User',
+                'format' => 'raw',
                 'value' => $model->updatedByUser->actorName ?? '-',
               ],
               'cntrRemovedAt:jalaliWithTime',
               [
                 'attribute' => 'cntrRemovedBy_User',
+                'format' => 'raw',
                 'value' => $model->removedByUser->actorName ?? '-',
               ],
             ],

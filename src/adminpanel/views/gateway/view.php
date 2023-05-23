@@ -45,16 +45,19 @@ $this->params['breadcrumbs'][] = $this->title;
               'gtwCreatedAt:jalaliWithTime',
               [
                 'attribute' => 'gtwCreatedBy_User',
+                'format' => 'raw',
                 'value' => $model->createdByUser->actorName ?? '-',
               ],
               'gtwUpdatedAt:jalaliWithTime',
               [
                 'attribute' => 'gtwUpdatedBy_User',
+                'format' => 'raw',
                 'value' => $model->updatedByUser->actorName ?? '-',
               ],
               'gtwRemovedAt:jalaliWithTime',
               [
                 'attribute' => 'gtwRemovedBy_User',
+                'format' => 'raw',
                 'value' => $model->removedByUser->actorName ?? '-',
               ],
             ],

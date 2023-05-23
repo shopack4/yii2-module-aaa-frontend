@@ -42,16 +42,19 @@ $this->params['breadcrumbs'][] = $this->title;
               'rolCreatedAt:jalaliWithTime',
               [
                 'attribute' => 'rolCreatedBy_User',
+                'format' => 'raw',
                 'value' => $model->createdByUser->actorName ?? '-',
               ],
               'rolUpdatedAt:jalaliWithTime',
               [
                 'attribute' => 'rolUpdatedBy_User',
+                'format' => 'raw',
                 'value' => $model->updatedByUser->actorName ?? '-',
               ],
               'rolRemovedAt:jalaliWithTime',
               [
                 'attribute' => 'rolRemovedBy_User',
+                'format' => 'raw',
                 'value' => $model->removedByUser->actorName ?? '-',
               ],
             ],

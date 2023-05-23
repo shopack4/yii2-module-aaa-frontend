@@ -42,6 +42,8 @@ class VoucherSearchModel extends VoucherModel
 					'vchAmount',
 					'vchStatus',
 					'vchCreatedAt' => [
+						'asc'		=> ['vchCreatedAt' => SORT_ASC,		'vchID' => SORT_ASC],
+						'desc'	=> ['vchCreatedAt' => SORT_DESC,	'vchID' => SORT_DESC],
 						'default' => SORT_DESC,
 					],
 					'vchCreatedBy',
@@ -54,6 +56,9 @@ class VoucherSearchModel extends VoucherModel
 					],
 					'vchRemovedBy',
 				],
+				'defaultOrder' => [
+					'vchCreatedAt' => SORT_DESC,
+				]
 			],
 		]);
 
